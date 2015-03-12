@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                     banner: banner
                 },
                 files: {
-                    'css/app.css': ['src/css/**/*.less']
+                    'app.css': ['src/css/**/*.less']
                 }
             }
         },
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                     banner: banner
                 },
                 files: {
-                    'js/app.js': ['src/js/libs/jquery.js', 'src/js/libs/angular.js', 'src/js/main.js', 'src/js/app/**/*.js']
+                    'app.js': ['src/js/libs/jquery.js', 'src/js/libs/angular.js', 'src/js/main.js', 'src/js/app/**/*.js']
                 }
             }
         },
