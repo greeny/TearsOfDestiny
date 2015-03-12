@@ -1,0 +1,41 @@
+{
+    "wallBlock": {
+        "passable": false,
+        "burnable": false,
+        "cssClasses": "block-wall",
+        "data": {}
+    },
+
+    "redExit": {
+        "passable": true,
+        "burnable": false,
+        "cssClasses": ["block-exit", "red"],
+        "data": {
+            "exit": "red"
+        }
+    },
+    "yellowExit": {
+        "passable": true,
+        "burnable": false,
+        "cssClasses": ["block-exit", "yellow"],
+        "data": {
+            "exit": "yellow"
+        }
+    },
+    "greenExit": {
+        "passable": true,
+        "burnable": false,
+        "cssClasses": ["block-exit", "green"],
+        "data": {
+            "exit": "green"
+        }
+    },
+    "blueExit": {
+        "passable": true,
+        "burnable": false,
+        "cssClasses": ["block-exit", "blue"],
+        "data": {
+            "exit": "blue"
+        }
+    }
+}

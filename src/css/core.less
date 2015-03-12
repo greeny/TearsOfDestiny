@@ -1,0 +1,30 @@
+.animation (@args) {
+	animation: @arguments;
+	-webkit-animation: @arguments;
+	-moz-animation: @arguments;
+	-o-animation: @arguments;
+}
+
+.fullScreen () {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.game {
+	.fullScreen();
+	font-family: monospace;
+	background-color: #dddddd;
+
+	.focus-blocker {
+		.fullScreen();
+		background-color: rgba(75,75,75,0.75);
+		color: white;
+		padding-top: 25%;
+		font-size: 32px;
+		text-align: center;
+		cursor: pointer;
+	}
+}

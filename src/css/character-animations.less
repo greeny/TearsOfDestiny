@@ -1,0 +1,73 @@
+@import "character";
+
+/* CHARACTER SHAPES */
+
+.character-shape-thick {
+	margin-top: (@character-standby-depth * 2);
+	margin-left: 0;
+	margin-right: 0;
+	width: @character-size;
+	height: @character-size - (@character-standby-depth * 2);
+}
+
+.character-shape-thin {
+	margin-top: 0;
+	margin-left: (@character-standby-depth);
+	margin-right: (@character-standby-depth);
+	width: @character-size - (@character-standby-depth * 2);
+	height: @character-size;
+}
+
+.character-shape-normal {
+	margin-top: (@character-standby-depth);
+	margin-left: (@character-standby-depth / 2);
+	margin-right: (@character-standby-depth / 2);
+	width: @character-size - @character-standby-depth;
+	height: @character-size - @character-standby-depth;
+}
+
+/* STANDBY ANIMATION */
+
+.animation-standby () {
+	0% {.character-shape-thick();}
+	25% {.character-shape-normal();}
+	50% {.character-shape-thin();}
+	75% {.character-shape-normal();}
+	100% {.character-shape-thick();}
+}
+
+/* KEYFRAMES */
+@keyframes character-standby {.animation-standby();}
+@-moz-keyframes character-standby {.animation-standby();}
+@-o-keyframes character-standby {.animation-standby();}
+@-webkit-keyframes character-standby {.animation-standby();}
+
+.game {
+	.character {
+		&.standby {
+			.animation(character-standby 0.5s infinite);
+		}
+
+		&.jumping {
+			.character-shape-thin();
+		}
+
+		&.falling {
+			.character-shape-normal();
+		}
+
+		&.moving-left {
+			.eye {
+				margin-left: -3px;
+				margin-right: 5px;
+			}
+		}
+
+		&.moving-right {
+			.eye {
+				margin-right: -3px;
+				margin-left: 5px;
+			}
+		}
+	}
+}

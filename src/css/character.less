@@ -1,0 +1,86 @@
+@import "core";
+
+@character-size: 32px;
+@character-standby-depth: 2px;
+
+@character-eye-size: 8px;
+@character-eye-inner-size: 4px;
+@character-eye-offset: 5px;
+
+@character-red-color: red;
+@character-red-eye-color: yellow;
+
+@character-yellow-color: yellow;
+@character-yellow-eye-color: green;
+
+@character-green-color: green;
+@character-green-eye-color: blue;
+
+@character-blue-color: blue;
+@character-blue-eye-color: red;
+
+.game {
+	.character {
+		position: absolute;
+		margin-top: @character-standby-depth;
+		margin-left: @character-standby-depth / 2;
+		margin-right: @character-standby-depth / 2;
+		width: @character-size - @character-standby-depth;
+		height: @character-size - @character-standby-depth;
+		border-radius: 50%;
+		
+		&.red {
+			background-color: @character-red-color;
+			.eye .eye-inner {
+				background-color: @character-red-eye-color;
+			}
+		}
+
+		&.yellow {
+			background-color: @character-yellow-color;
+			.eye .eye-inner {
+				background-color: @character-yellow-eye-color;
+			}
+		}
+
+		&.green {
+			background-color: @character-green-color;
+			.eye .eye-inner {
+				background-color: @character-green-eye-color;
+			}
+		}
+
+		&.blue {
+			background-color: @character-blue-color;
+			.eye .eye-inner {
+				background-color: @character-blue-eye-color;
+			}
+		}
+
+		.eye {
+			position: absolute;
+			width: @character-eye-size;
+			height: @character-eye-size;
+			background-color: black;
+			border-radius: 50%;
+			top: @character-eye-offset;
+
+			&.left-eye {
+				left: @character-eye-offset;
+			}
+
+			&.right-eye {
+				right: @character-eye-offset;
+			}
+
+			.eye-inner {
+				 position: absolute;
+				 top: 2px;
+				 left: 2px;
+				 border-radius: 50%;
+				 width: @character-eye-inner-size;
+				 height: @character-eye-inner-size;
+			 }
+		}
+	}
+}
