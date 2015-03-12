@@ -3,6 +3,8 @@
 
     game.controller('GameController', ['$scope', 'game', function ($scope, game) {
 
+        $scope.state = 'game';
+
         $scope.getCharacter = function () {
             return game.getCharacterManager().getCurrentCharacter();
         };

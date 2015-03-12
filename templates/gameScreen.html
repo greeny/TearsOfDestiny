@@ -1,33 +1,29 @@
-<div class="game" data-ng-controller="GameController" data-ng-blur="onLostFocus()" tabindex="0"
-     data-ng-keydown="onKeyDown($event)" data-ng-keyup="onKeyUp($event)">
-
-    <div data-ng-show="isReady()">
-        <div data-ng-repeat="(y, row) in getMap() track by $index">
-            <div data-ng-repeat="(x, block) in row track by $index">
-                <div data-ng-class="block.getCssClasses()"
-                     data-ng-style="{top: (y * 50) + 'px', left: (x * 50) + 'px'}">
-                </div>
+<div data-ng-show="isReady()">
+    <div data-ng-repeat="(y, row) in getMap() track by $index">
+        <div data-ng-repeat="(x, block) in row track by $index">
+            <div data-ng-class="block.getCssClasses()"
+                 data-ng-style="{top: (y * 50) + 'px', left: (x * 50) + 'px'}">
             </div>
         </div>
-
-        <div data-ng-repeat="(color, character) in getCharacters()">
-            <div data-character="character" data-color="color"></div>
-        </div>
-
-        <div data-ng-show="currentLevel">
-            {{currentLevel.name}}
-        </div>
     </div>
 
-    <div class="focus-blocker" data-ng-show="isWon()">
-        Victory!
+    <div data-ng-repeat="(color, character) in getCharacters()">
+        <div data-character="character" data-color="color"></div>
     </div>
 
-    <div class="focus-blocker" data-ng-hide="isReady()">
-        Game is loading
+    <div data-ng-show="currentLevel">
+        {{currentLevel.name}}
     </div>
+</div>
 
-    <div class="focus-blocker" data-ng-hide="focus || !isReady()" data-ng-click="onBlockerClicked()">
-        Lost focus, click to {{blockerWord}} playing
-    </div>
+<div class="focus-blocker" data-ng-show="isWon()">
+    Victory!
+</div>
+
+<div class="focus-blocker" data-ng-hide="isReady()">
+    Game is loading
+</div>
+
+<div class="focus-blocker" data-ng-hide="focus || !isReady()" data-ng-click="onBlockerClicked()">
+    Lost focus, click to {{blockerWord}} playing
 </div>

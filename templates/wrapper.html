@@ -1,0 +1,5 @@
+<div data-ng-controller="GameController" data-ng-blur="onLostFocus()" tabindex="0"
+     data-ng-keydown="onKeyDown($event)" data-ng-keyup="onKeyUp($event)" class="game">
+    <div data-menu data-ng-show="state === 'menu'"></div>
+    <div data-game-screen data-ng-show="state === 'game'"></div>
+</div>
