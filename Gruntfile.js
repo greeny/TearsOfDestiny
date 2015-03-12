@@ -39,5 +39,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('build', ['less:default', 'uglify:default']);
-    grunt.registerTask('serve', ['watch:default']);
+    grunt.registerTask('serve', ['build', 'watch:default']);
 };
