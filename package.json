@@ -1,9 +1,17 @@
 {
-    "name": "game",
+    "name": "TearsOfDestiny",
     "version": "0.1.0",
-    "description": "A bouncy balls game",
+    "description": "A logic game",
     "author": "greeny",
     "license": "MIT",
+    "repository": {
+        "type" : "git",
+        "url" : "http://github.com/greeny/TearsOfDestiny.git"
+    },
+    "bugs": {
+        "url" : "http://github.com/greeny/TearsOfDestiny/issues",
+        "email" : "blatny.tomas@seznam.cz"
+    },
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~1.0.0",
