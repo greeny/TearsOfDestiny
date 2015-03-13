@@ -51,7 +51,7 @@
 
             if (character.isJumping() || character.getJumpSpeed() !== undefined) {
                 if (character.getJumpSpeed() === undefined) {
-                    character.setJumpSpeed(11);
+                    character.setJumpSpeed(character.getColor() === 'yellow' ? 16 : 11);
                 }
 
                 if (character.getJumpSpeed() > 0) {
@@ -97,13 +97,17 @@
                 return isReady;
             },
 
-            loadLevel: function (path) {
-                loading = true;
+            clearLevelData: function () {
                 won = 0;
                 name = '';
                 key = '';
                 description = '';
                 openedMenu = false;
+            },
+
+            loadLevel: function (path) {
+                this.clearLevelData();
+                loading = true;
                 file = path;
                 $http.get(path).success(function (data) {
                     map.setMapData(data.map);

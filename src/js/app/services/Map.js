@@ -67,10 +67,14 @@
         }
 
         return {
-            setMapData: function (data) {
+            clearMapData: function () {
                 mapData = {};
                 mapView = {};
                 texts = [];
+            },
+
+            setMapData: function (data) {
+                this.clearMapData();
                 parseMap(data);
                 return this;
             },

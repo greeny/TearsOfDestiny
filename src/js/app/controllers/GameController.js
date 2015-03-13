@@ -42,6 +42,12 @@
             return {};
         };
 
+        $scope.deleteProgress = function () {
+            settings.clearLevels();
+            game.getLevel().clearLevelData();
+            game.getLevel().getMap().clearMapData();
+        };
+
         $scope.onLostFocus = function () {
             if ($scope.state === 'game') {
                 $timeout(function () {

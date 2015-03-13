@@ -9,6 +9,11 @@
             "name": "A new friend!",
             "file": "levels/level02",
             "dependencies": ["level01"]
+        },
+        "level03": {
+            "name": "Another friend?",
+            "file": "levels/level03",
+            "dependencies": ["level02"]
         }
     }
 }

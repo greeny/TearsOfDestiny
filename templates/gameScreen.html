@@ -24,6 +24,7 @@
         <div class="menu-title" data-ng-hide="isWon()">{{game.getLevel().getName()}}</div>
         <div class="menu-item" data-ng-click="game.closeMenu()" data-ng-hide="isWon()">Continue</div>
         <div class="menu-item" data-ng-click="game.startLevel(game.getLevel().getFile())">Restart</div>
-        <div class="menu-item" data-ng-click="(state = 'levels') && game.closeMenu()">Select level</div>
+        <div class="menu-item" data-ng-click="(state = 'levels') && game.closeMenu()">Level select</div>
+        <div class="menu-item" data-ng-click="(state = 'menu') && game.closeMenu()">Main menu</div>
     </div>
 </div>
