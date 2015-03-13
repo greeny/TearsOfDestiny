@@ -63,6 +63,10 @@
                 this.getLevel().loadLevel(file);
             },
 
+            openMenu: function () {
+                level.openMenu();
+            },
+
             hasOpenedMenu: function () {
                 return level.hasOpenedMenu();
             },

@@ -1,14 +1,14 @@
 (function (angular) {
     var game = angular.module('game');
 
-    game.controller('GameController', ['$scope', 'game', 'menu', '$timeout', function ($scope, game, menu, $timeout) {
+    game.controller('GameController', ['$scope', 'game', 'menu', 'settings', '$timeout', function ($scope, game, menu, settings, $timeout) {
 
         $scope.state = 'menu';
-        $scope.focus = true;
         $scope.map = false;
 
         $scope.game = game;
         $scope.menu = menu;
+        $scope.settings = settings;
 
         $scope.onMenuClick = function (action) {
             $scope.state = action;
@@ -42,27 +42,22 @@
             return {};
         };
 
-        $scope.onBlockerClicked = function () {
-            $scope.focus = true;
-            $scope.blockerWord = 'continue';
-        };
-
         $scope.onLostFocus = function () {
             if ($scope.state === 'game') {
                 $timeout(function () {
-                    $scope.focus = false;
+                    game.openMenu();
                 }, 250);
             }
         };
 
         $scope.onKeyDown = function ($event) {
-            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu() && $scope.focus) {
+            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu()) {
                 game.onKeyDown($event);
             }
         };
 
         $scope.onKeyUp = function ($event) {
-            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu() && $scope.focus) {
+            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu()) {
                 game.onKeyUp($event);
             }
         };

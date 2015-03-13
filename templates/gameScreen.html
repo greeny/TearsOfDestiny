@@ -7,6 +7,12 @@
         </div>
     </div>
 
+    <div data-ng-repeat="text in game.getLevel().getMap().getTexts() track by $index">
+        <div class="help-text" data-ng-style="{top: text.y + 'px', left: text.x + 'px'}">
+            {{text.value}}
+        </div>
+    </div>
+
     <div data-ng-repeat="(color, character) in getCharacters()">
         <div data-character="character" data-color="color"></div>
     </div>

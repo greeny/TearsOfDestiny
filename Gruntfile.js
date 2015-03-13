@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                     banner: banner
                 },
                 files: {
-                    'app.js': ['src/js/libs/jquery.js', 'src/js/libs/angular.js', 'src/js/main.js', 'src/js/app/**/*.js']
+                    'app.js': ['src/js/libs/jquery.js', 'src/js/libs/angular.js', 'src/js/libs/angular-cookies.js', 'src/js/main.js', 'src/js/app/**/*.js']
                 }
             }
         },

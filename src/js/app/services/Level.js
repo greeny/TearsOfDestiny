@@ -1,10 +1,11 @@
 (function (angular) {
     var game = angular.module('game');
 
-    game.factory('level', ['$interval', '$http', 'map', 'characterManager', 'pathingResolver', function ($interval, $http, map, characterManager, pathingResolver) {
+    game.factory('level', ['$interval', '$http', 'map', 'characterManager', 'pathingResolver', 'storage', function ($interval, $http, map, characterManager, pathingResolver, storage) {
 
         var loading = true;
         var name = '';
+        var key = '';
         var description = '';
         var won = 0;
         var file = '';
@@ -28,8 +29,11 @@
                 }
                 if (win && won < 10) { // delayed victory message
                     won++;
-                    if (won === 10) {
+                    if (won === 10) { // the actual victory
                         openedMenu = true;
+                        var levels = storage.load('wonLevels', {});
+                        levels[key] = 1;
+                        storage.save('wonLevels', levels);
                     }
                 }
             }
@@ -97,12 +101,14 @@
                 loading = true;
                 won = 0;
                 name = '';
+                key = '';
                 description = '';
                 openedMenu = false;
                 file = path;
                 $http.get(path).success(function (data) {
                     map.setMapData(data.map);
                     name = data.name;
+                    key = data.key;
                     description = data.description;
                     characterManager.purge();
                     var ch = data.characters;

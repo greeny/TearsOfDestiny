@@ -3,5 +3,5 @@ function dump(val) {
     return val;
 }
 (function (angular) {
-    angular.module('game', []);
+    angular.module('game', ['ngCookies']);
 })(angular);

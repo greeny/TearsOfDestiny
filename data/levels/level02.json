@@ -1,6 +1,7 @@
 {
     "name": "A new friend!",
     "description": "",
+    "key": "level02",
     "map": [
         {
             "type": "map",

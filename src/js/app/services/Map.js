@@ -5,6 +5,7 @@
 
         var mapData = {};
         var mapView = {};
+        var texts = [];
 
         function parseMap(data) {
             for (var key in data) {
@@ -52,6 +53,12 @@
                     var name = data.name;
                     mapData[x + '|' + y] = blockFactory.parse(name, value);
                     break;
+                case 'text':
+                    texts.push({
+                        value: data.value,
+                        x: data.x * 50,
+                        y: data.y * 50 + 10
+                    });
             }
         }
 
@@ -63,6 +70,7 @@
             setMapData: function (data) {
                 mapData = {};
                 mapView = {};
+                texts = [];
                 parseMap(data);
                 return this;
             },
@@ -82,6 +90,10 @@
 
             getMapData: function () {
                 return mapData;
+            },
+
+            getTexts: function () {
+                return texts;
             }
         };
     }]);
