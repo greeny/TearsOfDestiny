@@ -1,0 +1,7 @@
+<ul class="levels">
+    <li class="level" data-ng-click="state = 'menu'"><span class="level-name">&laquo; Back to menu</span></li>
+    <li data-ng-repeat="(key, level) in menu.getLevels() track by $index"
+        class="level" data-ng-click="startLevel(level.file)">
+        <span class="level-name">{{$index + 1}}: {{level.name}}</span>
+    </li>
+</ul>

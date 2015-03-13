@@ -23,6 +23,12 @@
                     if (isKeyDown) {
                         characterManager.setNextCharacter();
                     }
+                    break;
+                case 'cancel':
+                    if (isKeyDown) {
+                        level.toggleMenu();
+                    }
+                    break;
             }
         }
 
@@ -51,6 +57,18 @@
 
             getLevel: function () {
                 return level;
+            },
+
+            startLevel: function (file) {
+                this.getLevel().loadLevel(file);
+            },
+
+            hasOpenedMenu: function () {
+                return level.hasOpenedMenu();
+            },
+
+            closeMenu: function () {
+                level.closeMenu();
             }
         };
     }]);

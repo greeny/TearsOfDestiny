@@ -1,5 +1,28 @@
 <div data-ng-controller="GameController" data-ng-blur="onLostFocus()" tabindex="0"
      data-ng-keydown="onKeyDown($event)" data-ng-keyup="onKeyUp($event)" class="game">
-    <div data-menu data-ng-show="state === 'menu'"></div>
-    <div data-game-screen data-ng-show="state === 'game'"></div>
+
+    <div data-menu data-ng-show="isReady() && state === 'menu'"></div>
+    <div data-levels data-ng-show="isReady() && state === 'levels'"></div>
+    <div data-game-screen data-ng-show="isReady() && state === 'game'"></div>
+
+    <div class="credits" data-ng-show="isReady() && state === 'credits'">
+        <div class="back-link" data-ng-click="state = 'menu'">&laquo; Back to menu</div>
+
+        <div class="row">
+            A game by <a target="_blank" href="https://github.com/greeny">@greeny</a>
+        </div>
+
+        <div class="row">
+            Special thanks to:<br>
+            <a target="_blank" href="https://github.com/norik16">@norik16</a>
+        </div>
+    </div>
+
+    <div class="fullscreen-block" data-ng-hide="isReady()">
+        <p class="fullscreen-block-text">Tears of Destiny is loading...</p>
+    </div>
+
+    <div class="fullscreen-block" data-ng-show="!focus && isReady()" data-ng-click="onBlockerClicked()">
+        <p class="fullscreen-block-text">Lost focus, click to continue playing</p>
+    </div>
 </div>

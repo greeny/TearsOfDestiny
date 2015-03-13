@@ -4,7 +4,7 @@
     game.directive('gameScreen', function() {
         return {
             restrict: 'A',
-            templateUrl: 'templates/gameScreen.html'
+            templateUrl: 'templates/gameScreen.html?v=' + (new Date()).getTime()
         };
     });
 })(angular);

@@ -4,7 +4,7 @@
     game.directive('wrapper', function() {
         return {
             restrict: 'A',
-            templateUrl: 'templates/wrapper.html'
+            templateUrl: 'templates/wrapper.html?v=' + (new Date()).getTime()
         };
     });
 })(angular);

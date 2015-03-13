@@ -1,0 +1,45 @@
+@import "core";
+
+.game {
+	.menu {
+		font-size: 64px;
+		line-height: 96px;
+		position: absolute;
+		text-align: center;
+		.fullScreen();
+		margin-top: 20% - 10em;
+
+		.menu-title {
+			.text();
+			text-decoration: underline;
+		}
+
+		.menu-item {
+			cursor: pointer;
+			.text-hover();
+		}
+	}
+
+	.levels {
+		overflow-y: scroll;
+		text-align: center;
+		.fullScreen();
+
+		.level {
+			cursor: pointer;
+			list-style: none;
+			margin: 5px;
+			padding: 5px;
+			border: 1px solid transparent;
+
+			&:hover {
+				border: 1px solid #ededed;
+			}
+
+			.level-name {
+				font-size: 24px;
+				.text-small-hover();
+			}
+		}
+	}
+}

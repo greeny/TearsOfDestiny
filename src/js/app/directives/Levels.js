@@ -1,10 +1,10 @@
 (function (angular) {
     var game = angular.module('game');
 
-    game.directive('menu', function() {
+    game.directive('levels', function() {
         return {
             restrict: 'A',
-            templateUrl: 'templates/menu.html?v=' + (new Date()).getTime()
+            templateUrl: 'templates/levels.html?v=' + (new Date()).getTime()
         };
     });
 })(angular);

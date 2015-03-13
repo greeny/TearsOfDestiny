@@ -7,6 +7,8 @@
         var name = '';
         var description = '';
         var won = 0;
+        var file = '';
+        var openedMenu = false;
 
         function isReady() {
             return !loading;
@@ -26,6 +28,9 @@
                 }
                 if (win && won < 10) { // delayed victory message
                     won++;
+                    if (won === 10) {
+                        openedMenu = true;
+                    }
                 }
             }
         }
@@ -89,6 +94,12 @@
             },
 
             loadLevel: function (path) {
+                loading = true;
+                won = 0;
+                name = '';
+                description = '';
+                openedMenu = false;
+                file = path;
                 $http.get(path).success(function (data) {
                     map.setMapData(data.map);
                     name = data.name;
@@ -104,8 +115,32 @@
                 });
             },
 
+            getName: function () {
+                return name;
+            },
+
+            getFile: function () {
+                return file;
+            },
+
             getMap: function () {
                 return map;
+            },
+
+            openMenu: function () {
+                openedMenu = true;
+            },
+
+            toggleMenu: function () {
+                openedMenu = !openedMenu;
+            },
+
+            closeMenu: function () {
+                openedMenu = false;
+            },
+
+            hasOpenedMenu: function () {
+                return openedMenu;
             }
         };
     }]);

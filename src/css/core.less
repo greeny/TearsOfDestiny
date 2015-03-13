@@ -5,6 +5,13 @@
 	-o-animation: @arguments;
 }
 
+.transition (@type, @speed) {
+	-webkit-transition: @type @speed;
+	-moz-transition: @type @speed;
+	-o-transition: @type @speed;
+	transition: @type @speed;
+}
+
 .fullScreen () {
 	position: absolute;
 	top: 0;
@@ -13,18 +20,67 @@
 	right: 0;
 }
 
+.text () {
+	color: #999999;
+	text-shadow: 1px 1px 3px #000000;
+}
+
+.text-small () {
+	color: #999999;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.text-hover () {
+	.text();
+	.transition(color, 0.5s);
+
+	&:hover {
+		color: #dddddd;
+	}
+}
+
+.text-small-hover () {
+	.text-small();
+	.transition(color, 0.5s);
+
+	&:hover {
+		color: #dddddd;
+	}
+}
+
 .game {
 	.fullScreen();
+	position: fixed;
 	font-family: monospace;
 	background-color: #dddddd;
 
-	.focus-blocker {
+	.fullscreen-block {
 		.fullScreen();
 		background-color: rgba(75,75,75,0.75);
 		color: white;
-		padding-top: 25%;
+		padding-top: 25% - 0.5em;
 		font-size: 32px;
+		line-height: 32px;
 		text-align: center;
 		cursor: pointer;
+	}
+
+	.credits {
+		.fullScreen();
+		.text();
+		margin-top: 40px;
+		text-align: center;
+		font-size: 32px;
+
+		.back-link {
+			cursor: pointer;
+			.text-hover();
+		}
+
+		.row {
+			margin-top: 40px;
+			width: 49%;
+			float: left;
+		}
 	}
 }

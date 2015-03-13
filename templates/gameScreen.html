@@ -10,20 +10,14 @@
     <div data-ng-repeat="(color, character) in getCharacters()">
         <div data-character="character" data-color="color"></div>
     </div>
+</div>
 
-    <div data-ng-show="currentLevel">
-        {{currentLevel.name}}
+<div class="fullscreen-block" data-ng-show="game.hasOpenedMenu()">
+    <div class="menu">
+        <div class="menu-title" data-ng-show="isWon()">Level complete!</div>
+        <div class="menu-title" data-ng-hide="isWon()">{{game.getLevel().getName()}}</div>
+        <div class="menu-item" data-ng-click="game.closeMenu()" data-ng-hide="isWon()">Continue</div>
+        <div class="menu-item" data-ng-click="game.startLevel(game.getLevel().getFile())">Restart</div>
+        <div class="menu-item" data-ng-click="(state = 'levels') && game.closeMenu()">Select level</div>
     </div>
-</div>
-
-<div class="focus-blocker" data-ng-show="isWon()">
-    Victory!
-</div>
-
-<div class="focus-blocker" data-ng-hide="isReady()">
-    Game is loading
-</div>
-
-<div class="focus-blocker" data-ng-hide="focus || !isReady()" data-ng-click="onBlockerClicked()">
-    Lost focus, click to {{blockerWord}} playing
 </div>

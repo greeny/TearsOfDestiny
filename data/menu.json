@@ -1,0 +1,14 @@
+{
+    "levels": {
+        "level01": {
+            "name": "Easy beginnings",
+            "file": "levels/level01",
+            "dependencies": []
+        },
+        "level02": {
+            "name": "A new friend!",
+            "file": "levels/level02",
+            "dependencies": ["level01"]
+        }
+    }
+}

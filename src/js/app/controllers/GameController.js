@@ -1,24 +1,31 @@
 (function (angular) {
     var game = angular.module('game');
 
-    game.controller('GameController', ['$scope', 'game', function ($scope, game) {
+    game.controller('GameController', ['$scope', 'game', 'menu', '$timeout', function ($scope, game, menu, $timeout) {
 
-        $scope.state = 'game';
+        $scope.state = 'menu';
+        $scope.focus = true;
+        $scope.map = false;
 
-        $scope.getCharacter = function () {
+        $scope.game = game;
+        $scope.menu = menu;
+
+        $scope.onMenuClick = function (action) {
+            $scope.state = action;
+        };
+
+        $scope.startLevel = function (file) {
+            game.startLevel('data/' + file + '.json?v=' + (new Date()).getTime());
+            $scope.state = 'game';
+        };
+
+        $scope.getCurrentCharacter = function () {
             return game.getCharacterManager().getCurrentCharacter();
         };
 
         $scope.getCharacters = function () {
             return game.getCharacterManager().getCharacters();
         };
-
-        $scope.ready = false;
-        $scope.focus = false;
-        $scope.blockerWord = 'start';
-        $scope.map = false;
-
-        $scope.currentLevel = undefined;
 
         $scope.isReady = function () {
             return game.getLevel().isReady();
@@ -41,18 +48,24 @@
         };
 
         $scope.onLostFocus = function () {
-            //$scope.focus = false;
+            if ($scope.state === 'game') {
+                $timeout(function () {
+                    $scope.focus = false;
+                }, 250);
+            }
         };
 
         $scope.onKeyDown = function ($event) {
-            game.onKeyDown($event);
+            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu() && $scope.focus) {
+                game.onKeyDown($event);
+            }
         };
 
         $scope.onKeyUp = function ($event) {
-            game.onKeyUp($event);
+            if ($scope.state === 'game' && !game.getLevel().hasOpenedMenu() && $scope.focus) {
+                game.onKeyUp($event);
+            }
         };
-
-        game.getLevel().loadLevel('data/levels/level01.json?v=' + $.now());
 
     }]);
 })(angular);

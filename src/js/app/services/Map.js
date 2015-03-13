@@ -61,6 +61,8 @@
 
         return {
             setMapData: function (data) {
+                mapData = {};
+                mapView = {};
                 parseMap(data);
                 return this;
             },
