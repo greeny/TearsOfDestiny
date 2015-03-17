@@ -3,7 +3,7 @@
 
     game.factory('level', ['$interval', '$http', 'map', 'characterManager', 'pathingResolver', 'storage', function ($interval, $http, map, characterManager, pathingResolver, storage) {
 
-        var loading = true;
+        var loading = false;
         var name = '';
         var key = '';
         var description = '';
@@ -94,7 +94,7 @@
             },
 
             isReady: function () {
-                return isReady;
+                return isReady();
             },
 
             clearLevelData: function () {
