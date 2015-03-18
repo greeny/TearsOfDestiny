@@ -97,21 +97,27 @@
             },
 
             sendChatMessage: function (user) {
-                var data = {
-                    user: user,
-                    message: this.chatMessage,
-                    mobile: Modernizr.touch
-                };
-                webSocket.send('lobby-chat', data);
-                data.type = 'chat';
-                messages.push(data);
-                this.chatMessage = '';
+                if (this.chatMessage.trim()) {
+                    var data = {
+                        user: user,
+                        message: this.chatMessage.trim(),
+                        mobile: Modernizr.touch
+                    };
+                    webSocket.send('lobby-chat', data);
+                    data.type = 'chat';
+                    messages.push(data);
+                    this.chatMessage = '';
+                    this.typing = false;
+                }
             },
 
             sendStartTyping: function () {
                 if (!this.typing) {
                     this.typing = true;
                     webSocket.send('lobby-chat-start-typing', {});
+                }
+                if (this.chatMessage.trim() === '') {
+                    this.sendStopTyping();
                 }
             },
 
