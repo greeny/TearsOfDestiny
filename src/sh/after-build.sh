@@ -1,7 +1,7 @@
 #!/bin/bash
-cd $0
+cd $1
 grunt build
 cd src/php
 composer install
 php kill-server.php
-php maintenance-complete.php $1
+php maintenance-complete.php $2

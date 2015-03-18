@@ -1,3 +1,3 @@
 #!/bin/bash
-cd $0
+cd $1
 php maintenance.php
