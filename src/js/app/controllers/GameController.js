@@ -74,7 +74,7 @@
             }
         };
 
-        $http.get('version.json').success(function (data) {
+        $http.get('version.json?v=' + (new Date()).getTime()).success(function (data) {
             $scope.version = data.version;
         })
 
