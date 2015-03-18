@@ -26,7 +26,6 @@
 
         function onMessage(e) {
             var message = JSON.parse(e.data);
-            dump(message);
             switch (message.type) {
                 case 'chat':
                     chatMessages.unshift(message.data);

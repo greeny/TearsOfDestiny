@@ -8,7 +8,7 @@
                     <label for="lobby-form-username">
                         Username:
                     </label>
-                    <input id="lobby-form-username" type="text" data-ng-model="username" required>
+                    <input id="lobby-form-username" type="text" data-ng-model="username" required autocomplete="off">
                     <input type="submit" data-ng-click="lobby.login(username)" value="Login">
                 </form>
             </div>
@@ -44,11 +44,11 @@
 
                     <form novalidate>
                         <label>
-                            <input type="text" placeholder="message" data-ng-model="lobby.chatMessage"
-                                   data-ng-blur="lobby.sendStopTyping()" data-ng-keydown="lobby.sendStartTyping()">
+                            <input type="text" placeholder="message" data-ng-model="lobby.chatMessage" autocomplete="off"
+                                   data-ng-blur="lobby.sendStopTyping()" data-ng-change="lobby.sendStartTyping()">
                         </label>
 
-                        <input type="submit" data-ng-click="lobby.sendChatMessage(username)">
+                        <input type="submit" data-ng-click="lobby.sendChatMessage(username)" value="Send message">
                     </form>
 
                     <div data-ng-show="lobby.getTypingUsers().length">
