@@ -76,6 +76,18 @@
                 return webSocket.isConnected();
             },
 
+            getWebSocketState: function () {
+                if (webSocket.isConnected()) {
+                    return 'Connected';
+                } else if (webSocket.isConnecting()) {
+                    return 'Connecting';
+                } else if (webSocket.isError()) {
+                    return 'Error';
+                } else {
+                    return 'Stalled';
+                }
+            },
+
             logout: function () {
                 webSocket.send('logout', {});
                 this.loggedIn = false;
