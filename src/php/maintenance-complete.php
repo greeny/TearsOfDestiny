@@ -20,4 +20,6 @@ file_put_contents($versionFile, json_encode([
     'version' => $version,
 ]));
 
+echo "Successfully set version to $version\n";
+
 @rename(__DIR__ . '/../../.maintenance', __DIR__ . '/../../.maintenance_off');
