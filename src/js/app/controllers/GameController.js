@@ -1,7 +1,7 @@
 (function (angular) {
     var game = angular.module('game');
 
-    game.controller('GameController', ['$scope', 'game', 'menu', 'settings', '$timeout', function ($scope, game, menu, settings, $timeout) {
+    game.controller('GameController', ['$scope', 'game', 'menu', 'settings', '$timeout', 'webSocket', '$http', function ($scope, game, menu, settings, $timeout, webSocket, $http) {
 
         $scope.state = 'menu';
         $scope.map = false;
@@ -9,6 +9,12 @@
         $scope.game = game;
         $scope.menu = menu;
         $scope.settings = settings;
+        $scope.webSocket = webSocket;
+        $scope.version = '';
+
+        $scope.supportsTouch = function () {
+            return Modernizr.touch;
+        };
 
         $scope.onMenuClick = function (action) {
             $scope.state = action;
@@ -67,6 +73,10 @@
                 game.onKeyUp($event);
             }
         };
+
+        $http.get('version.json').success(function (data) {
+            $scope.version = data.version;
+        })
 
     }]);
 })(angular);

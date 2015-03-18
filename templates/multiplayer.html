@@ -1,0 +1,63 @@
+<div class="multiplayer">
+    <div class="back-link" data-ng-click="state = 'menu'">&laquo; Back to menu</div>
+
+    <div data-ng-controller="MultiplayerController" class="lobby">
+        <div data-ng-show="lobby.isReady()">
+            <div class="login-form" data-ng-hide="lobby.loggedIn">
+                <form novalidate>
+                    <label for="lobby-form-username">
+                        Username:
+                    </label>
+                    <input id="lobby-form-username" type="text" data-ng-model="username" required>
+                    <input type="submit" data-ng-click="lobby.login(username)" value="Login">
+                </form>
+            </div>
+
+            <div data-ng-show="lobby.loggedIn">
+                <div>
+                    Logged in as {{username}}
+                    <input type="submit" data-ng-click="lobby.logout()" value="Logout">
+
+                    <hr>
+
+                    Online users:
+
+                    <ul class="user-list">
+                        <li data-ng-repeat="username in lobby.getOnlineUsers() track by $index">{{username}}</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div data-ng-repeat="message in lobby.getMessages() track by $index">
+                        <div data-ng-switch="message.type">
+                            <div data-ng-switch-when="chat">
+                                {{message.user}}<span data-ng-show="message.mobile"> (mobile)</span>: {{message.message}}
+                            </div>
+                            <div data-ng-switch-when="login">
+                                {{message.user}} has logged in.
+                            </div>
+                            <div data-ng-switch-when="logout">
+                                {{message.user}} has logged out.
+                            </div>
+                        </div>
+                    </div>
+
+                    <form novalidate>
+                        <label>
+                            <input type="text" placeholder="message" data-ng-model="lobby.chatMessage"
+                                   data-ng-blur="lobby.sendStopTyping()" data-ng-keydown="lobby.sendStartTyping()">
+                        </label>
+
+                        <input type="submit" data-ng-click="lobby.sendChatMessage(username)">
+                    </form>
+
+                    <div data-ng-show="lobby.getTypingUsers().length">
+                        <div data-ng-repeat="typingUser in lobby.getTypingUsers() track by $index">
+                            {{typingUser}} is typing...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

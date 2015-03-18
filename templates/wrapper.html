@@ -4,6 +4,7 @@
     <div data-menu data-ng-show="isReady() && state === 'menu'"></div>
     <div data-levels data-ng-show="isReady() && state === 'levels'"></div>
     <div data-game-screen data-ng-show="isReady() && state === 'game'"></div>
+    <div data-multiplayer data-ng-show="isReady() && state === 'multiplayer'"></div>
 
     <div class="credits" data-ng-show="isReady() && state === 'settings'">
         <div class="back-link" data-ng-click="state = 'menu'">&laquo; Back to menu</div>
@@ -32,4 +33,6 @@
     <div class="fullscreen-block" data-ng-hide="isReady()">
         <p class="fullscreen-block-text">Tears of Destiny is loading...</p>
     </div>
+
+    <div class="version">Tears of Destiny version {{version}}</div>
 </div>

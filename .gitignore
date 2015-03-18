@@ -2,3 +2,7 @@ app.css
 app.js
 node_modules
 .idea
+src/php/vendor
+.maintenance
+.maintenance_off
+version.json
