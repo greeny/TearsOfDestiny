@@ -2,6 +2,10 @@
     <div class="back-link" data-ng-click="state = 'menu'">&laquo; Back to menu</div>
 
     <div data-ng-controller="MultiplayerController" class="lobby">
+        <div>
+            Connection state: {{lobby.getWebSocketState()}}
+        </div>
+        <hr>
         <div data-ng-show="lobby.isReady()">
             <div class="login-form" data-ng-hide="lobby.loggedIn">
                 <form novalidate>

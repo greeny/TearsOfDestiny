@@ -8,6 +8,7 @@
         var connecting = false;
         var chatMessages = [];
         var id = 1;
+        var error = false;
 
         var callbacks = [];
 
@@ -47,12 +48,19 @@
         }
 
         function connect() {
-            connecting = true;
-            socket = new WebSocket('ws://' + window.location.hostname + ':8080');
-            socket.onopen = onOpen;
-            socket.onclose = onClose;
-            socket.onmessage = onMessage;
-            socket.onerror = onError;
+            if (!error) {
+                connecting = true;
+                try {
+                    socket = new WebSocket('ws://' + window.location.hostname + ':8080');
+                    socket.onopen = onOpen;
+                    socket.onclose = onClose;
+                    socket.onmessage = onMessage;
+                    socket.onerror = onError;
+                } catch (err) {
+                    connecting = false;
+                    error = true;
+                }
+            }
         }
 
         function disconnect() {
@@ -73,6 +81,10 @@
 
             isConnecting: function () {
                 return connecting;
+            },
+
+            isError: function () {
+                return error;
             },
 
             getChatMessages: function () {
