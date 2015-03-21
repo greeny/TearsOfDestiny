@@ -5,7 +5,8 @@
 
 if (file_exists(__DIR__ . '/.maintenance')) {
 
-?><!DOCTYPE html>
+    ?>
+<!DOCTYPE html>
 <html data-ng-app="game">
 <head lang="en">
     <meta charset="UTF-8">
@@ -14,7 +15,8 @@ if (file_exists(__DIR__ . '/.maintenance')) {
 <body>
 Maintenance mode, please come back later.
 </body>
-</html><?php
+</html>
+<?php
     die;
 }
 
