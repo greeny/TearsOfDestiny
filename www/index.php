@@ -20,14 +20,14 @@ Maintenance mode, please come back later.
     die;
 }
 
-system('php ' . __DIR__ . '/src/php/server.php > /dev/null 2>/dev/null &', $output); // try to start webSocket server
+system('php ' . __DIR__ . '/../server/run-server.php > /dev/null 2>/dev/null &', $output); // try to start webSocket server
 
 ?><!DOCTYPE html>
 <html data-ng-app="game">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Tears of Destiny</title>
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
     <div id="js-check">You need to enable javascript in order to play Tears of Destiny</div>
@@ -36,6 +36,6 @@ system('php ' . __DIR__ . '/src/php/server.php > /dev/null 2>/dev/null &', $outp
         document.getElementById('js-check').style.display = 'none';
         document.getElementById('game-wrapper').style.display = 'block';
     </script>
-    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

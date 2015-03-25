@@ -6,7 +6,7 @@
         var blockData = undefined;
         var ready = false;
 
-        $http.get('data/blocks.json').success(function (data) {
+        $http.get('assets/data/blocks.json').success(function (data) {
             blockData = data;
             ready = true;
         });

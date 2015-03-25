@@ -6,7 +6,7 @@
         var ready = false;
         var menuData = {};
 
-        $http.get('data/menu.json?v=' + (new Date()).getTime()).success(function (data) {
+        $http.get('assets/data/menu.json?v=' + (new Date()).getTime()).success(function (data) {
             menuData = data;
             ready = true;
         });

@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                     banner: banner
                 },
                 files: {
-                    'app.css': ['src/css/**/*.less']
+                    'www/assets/css/app.css': ['css/**/*.less']
                 }
             }
         },
@@ -19,20 +19,20 @@ module.exports = function (grunt) {
                     banner: banner
                 },
                 files: {
-                    'app.js': [
-                        'src/js/libs/jquery.js',
-                        'src/js/libs/angular.js',
-                        'src/js/libs/angular-cookies.js',
-                        'src/js/libs/modernizr-touch.js',
-                        'src/js/main.js',
-                        'src/js/app/**/*.js'
+                    'www/assets/js/app.js': [
+                        'js/libs/jquery.js',
+                        'js/libs/angular.js',
+                        'js/libs/angular-cookies.js',
+                        'js/libs/modernizr-touch.js',
+                        'js/main.js',
+                        'js/app/**/*.js'
                     ]
                 }
             }
         },
         watch: {
             default: {
-                files: ['src/**'],
+                files: ['css/**/*.less', 'js/**/*.js'],
                 tasks: ['build'],
                 options: {
                     livereload: true

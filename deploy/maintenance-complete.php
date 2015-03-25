@@ -4,9 +4,9 @@
  */
 
 $rev = $argv[1];
-$data = json_decode(file_get_contents(__DIR__ . '/../../package.json'));
+$data = json_decode(file_get_contents(__DIR__ . '/../package.json'));
 
-$versionFile = __DIR__ . '/../../version.json';
+$versionFile = __DIR__ . '/../www/version.json';
 
 $build = 1;
 if (file_exists($versionFile)) {
@@ -22,4 +22,4 @@ file_put_contents($versionFile, json_encode([
 
 echo "Successfully set version to $version\n";
 
-@rename(__DIR__ . '/../../.maintenance', __DIR__ . '/../../.maintenance_off');
+@rename(__DIR__ . '/../www/.maintenance', __DIR__ . '/../www/.maintenance_off');

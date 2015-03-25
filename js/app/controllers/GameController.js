@@ -21,7 +21,7 @@
         };
 
         $scope.startLevel = function (file) {
-            game.startLevel('data/' + file + '.json?v=' + (new Date()).getTime());
+            game.startLevel('assets/data/' + file + '.json?v=' + (new Date()).getTime());
             $scope.state = 'game';
         };
 

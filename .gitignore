@@ -1,8 +1,8 @@
-app.css
-app.js
+www/assets/css/app.css
+www/assets/js/app.js
 node_modules
 .idea
-src/php/vendor
+server/vendor
 .maintenance
 .maintenance_off
 version.json
