@@ -12,10 +12,11 @@ THe goal is to get all characters into the exit of same color.
 
 ## Installation
 
-You need to have [npm](https://www.npmjs.com/) and [Grunt](http://gruntjs.com/).
+You need to have [npm](https://www.npmjs.com/), [Grunt](http://gruntjs.com/) and [Composer](https://getcomposer.org/).
 
 ```
 git clone https://github.com/greeny/TearsOfDestiny.git
 npm install
 grunt build
+composer install
 ```
