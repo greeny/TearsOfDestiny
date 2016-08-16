@@ -1,8 +1,6 @@
 # TearsOfDestiny
 Tears of destiny - web game
 
-Can be found http://tears.blatny.org/
-
 The game is still in ALPHA state, feel free to report any bugs or contribute with pull requests.
 
 ## Gameplay
